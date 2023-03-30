@@ -77,6 +77,15 @@ def pions_alignes():
     # on teste les diagonales croissantes:
 
     for i in range(3):
+        for j in range(2):
+            if grille[i][j] == 1 and grille[i+1][j+1] == 1 and grille[i+2][j+2] == 1 and grille [i+3][j+3]:
+                trouve=2
+                gagnant=1
+                return trouve
+            if grille[i][j] == 2 and grille[i+1][j+1] == 2 and grille[i+2][j+2] == 2 and grille [i+3][j+3]:
+                trouve=1
+                gagnant=2
+                return trouve
         
         
     # si on n'a rien trouvé on retourne 0 :
