@@ -1,4 +1,9 @@
-import turtle
+'''
+Ici, le problème se situe lignes 94 à 105. Le programme ne détecte pas
+l'alignement des pions de même couleur en diagonale décroissante
+'''
+
+
 grille=[7*[0], 7*[0], 7*[0], 7*[0], 7*[0], 7*[0]]
 
 # tab_colonne mémorise le nombre de pions dans chacune des colonnes
@@ -6,8 +11,7 @@ tab_colonne=7*[0]
 # joueur_courant indique le prochain joueur qui doit jouer : 1 pour ROUGE et 2 pour BLEU
 joueur_courant=1
 
-a = 3
-
+a  = 3
 # La fonction afficher_grille() affiche la grille
 def afficher_grille():
     for i in range(6):
@@ -78,29 +82,31 @@ def pions_alignes():
 
     for i in range(3):
         for j in range(2):
-            if grille[i][j] == 1 and grille[i+1][j+1] == 1 and grille[i+2][j+2] == 1 and grille [i+3][j+3]:
+            if grille[i][j] == 1 and grille[i+1][j+1] == 1 and grille[i+2][j+2] == 1 and grille [i+3][j+3] == 1:
                 trouve=2
                 gagnant=1
                 return trouve
-            if grille[i][j] == 2 and grille[i+1][j+1] == 2 and grille[i+2][j+2] == 2 and grille [i+3][j+3]:
+            if grille[i][j] == 2 and grille[i+1][j+1] == 2 and grille[i+2][j+2] == 2 and grille [i+3][j+3] == 2:
                 trouve=1
                 gagnant=2
                 return trouve
     #On teste les diagonales décroissantes
     for i in range(6):
-        for j in range(5):
-            if grille[i][j] == 1 and grille[i-1][j-1] == 1 and grille[i-2][j-2] == 1 and grille [i-3][j-3]:
+        for j in range(6):
+            if grille[i][j] == 1 and grille[i-1][j+1] == 1 and grille[i-2][j+2] == 1 and grille [i-3][j+3] == 1:
+                print("trouve")
                 trouve=2
                 gagnant=1
                 return trouve
-            if grille[i][j] == 2 and grille[i-1][j-1] == 2 and grille[i-2][j-2] == 2 and grille [i-3][j-3]:
+            if grille[i][j] == 2 and grille[i-1][j+1] == 2 and grille[i-2][j+2] == 2 and grille [i-3][j+3] == 2:
+                print("trouve")
                 trouve=1
                 gagnant=2
                 return trouve
         
-        
+
     # si on n'a rien trouvé on retourne 0 :
-        return trouve
+    return 0
 
 # La fonction tester_saisie demande au joueur de saisir un nombre entre 0 et 6,
 # et recommence tant que la valeur saisie n'est pas un entier dans cet intervale
