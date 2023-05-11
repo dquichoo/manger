@@ -80,8 +80,8 @@ def pions_alignes():
 
     # on teste les diagonales croissantes:
 
-    for i in range(3):
-        for j in range(2):
+    for i in range(4):
+        for j in range(3):
             if grille[i][j] == 1 and grille[i+1][j+1] == 1 and grille[i+2][j+2] == 1 and grille [i+3][j+3] == 1:
                 trouve=2
                 gagnant=1
@@ -91,14 +91,14 @@ def pions_alignes():
                 gagnant=2
                 return trouve
     #On teste les diagonales décroissantes
-    for i in range(6):
-        for j in range(6):
-            if grille[i][j] == 1 and grille[i-1][j+1] == 1 and grille[i-2][j+2] == 1 and grille [i-3][j+3] == 1:
+    for i in range(0,3):
+        for j in range(3,7):
+            if grille[i][j] == 1 and grille[i+1][j-1] == 1 and grille[i+2][j-2] == 1 and grille [i+3][j-3] == 1:
                 print("trouve")
                 trouve=2
                 gagnant=1
                 return trouve
-            if grille[i][j] == 2 and grille[i-1][j+1] == 2 and grille[i-2][j+2] == 2 and grille [i-3][j+3] == 2:
+            if grille[i][j] == 2 and grille[i+1][j-1] == 2 and grille[i+2][j-2] == 2 and grille [i+3][j-3] == 2:
                 print("trouve")
                 trouve=1
                 gagnant=2
